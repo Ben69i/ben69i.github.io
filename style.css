@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     color: #333;
-    background: #f4f4f9;
+    background: #fdfcf7; /* Warm beige background */
 }
 
 .container {
@@ -23,22 +23,23 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    background: #fff;
+    background: #fff7f0; /* Light warm background */
 }
 
 .logo {
     font-size: 1.8em;
-    color: #333;
+    color: #b0754a;
+    font-weight: 600;
 }
 
 .menu a {
     margin-left: 20px;
     text-decoration: none;
-    color: #333;
+    color: #b0754a;
 }
 
 .menu a:hover {
-    color: #007acc;
+    color: #d89b61;
 }
 
 /* Hero Section */
@@ -49,7 +50,7 @@ body {
     justify-content: center;
     text-align: center;
     background: url('hero-bg.jpg') no-repeat center center/cover;
-    color: #fff;
+    color: #fdfcf7;
 }
 
 .hero h1 {
@@ -63,21 +64,27 @@ body {
 }
 
 .cta-button {
-    background: #007acc;
-    color: #fff;
+    background: #d89b61;
+    color: #fdfcf7;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 30px;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .cta-button:hover {
-    background: #005a9e;
+    background: #b0754a;
 }
 
 /* Services Section */
 .services {
     padding: 60px 0;
     text-align: center;
+}
+
+.services h2 {
+    color: #d89b61;
+    margin-bottom: 40px;
 }
 
 .service-items {
@@ -108,6 +115,11 @@ body {
     text-align: center;
 }
 
+.products h2 {
+    color: #d89b61;
+    margin-bottom: 40px;
+}
+
 .product-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -121,7 +133,7 @@ body {
 
 .product-item img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 /* Contact Section */
@@ -141,23 +153,27 @@ body {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .contact button {
-    background: #333;
+    background: #b0754a;
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
 }
 
 /* Footer */
 footer {
-    background: #333;
+    background: #b0754a;
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
 }
 
 footer .social-icons a {
@@ -167,5 +183,5 @@ footer .social-icons a {
 }
 
 footer .social-icons a:hover {
-    color: #007acc;
+    color: #d89b61;
 }
