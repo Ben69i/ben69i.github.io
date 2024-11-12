@@ -1,4 +1,4 @@
-/* Reset */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,97 +6,166 @@
     font-family: Arial, sans-serif;
 }
 
-/* General Styles */
+body {
+    color: #333;
+    background: #f4f4f9;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
 }
 
-.header {
-    background: #333;
-    padding: 1rem 0;
-    color: white;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: #fff;
 }
 
 .logo {
-    float: left;
-    font-size: 1.5rem;
+    font-size: 1.8em;
+    color: #333;
 }
 
-.nav {
-    float: right;
-}
-
-.nav a {
-    color: white;
+.menu a {
+    margin-left: 20px;
     text-decoration: none;
-    margin: 0 10px;
+    color: #333;
 }
 
+.menu a:hover {
+    color: #007acc;
+}
+
+/* Hero Section */
 .hero {
-    height: 80vh;
-    background: url('hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
 }
 
-.hero-content h2 {
-    font-size: 2.5rem;
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
 }
 
 .cta-button {
-    display: inline-block;
-    background: #ff7f50;
+    background: #007acc;
+    color: #fff;
     padding: 10px 20px;
-    color: white;
-    text-decoration: none;
     border-radius: 5px;
-    margin-top: 20px;
+    text-decoration: none;
 }
 
-.features, .about, .services, .portfolio, .contact, .footer {
-    padding: 4rem 0;
+.cta-button:hover {
+    background: #005a9e;
+}
+
+/* Services Section */
+.services {
+    padding: 60px 0;
     text-align: center;
 }
 
-.features .feature, .services .service, .portfolio .portfolio-item {
-    display: inline-block;
-    width: 30%;
-    margin: 1%;
+.service-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.contact form input, .contact form textarea {
+.service-item {
+    width: 30%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.service-item img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Products Section */
+.products {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-item {
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+.product-item img {
     width: 100%;
+    border-radius: 5px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+.contact input, .contact textarea {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.contact form button {
+.contact button {
     background: #333;
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
+    padding: 10px;
     border: none;
     border-radius: 5px;
 }
 
-.footer {
+/* Footer */
+footer {
     background: #333;
-    color: white;
-    padding: 2rem 0;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.footer p, .footer .social-icons a {
-    color: white;
+footer .social-icons a {
+    color: #fff;
     text-decoration: none;
     margin: 0 10px;
 }
 
-.social-icons a:hover, .nav a:hover, .cta-button:hover {
-    opacity: 0.7;
+footer .social-icons a:hover {
+    color: #007acc;
 }
