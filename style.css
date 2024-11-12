@@ -1,0 +1,102 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* General Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    background: #333;
+    padding: 1rem 0;
+    color: white;
+}
+
+.logo {
+    float: left;
+    font-size: 1.5rem;
+}
+
+.nav {
+    float: right;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.hero {
+    height: 80vh;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ff7f50;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.features, .about, .services, .portfolio, .contact, .footer {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.features .feature, .services .service, .portfolio .portfolio-item {
+    display: inline-block;
+    width: 30%;
+    margin: 1%;
+}
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact form button {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer p, .footer .social-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-icons a:hover, .nav a:hover, .cta-button:hover {
+    opacity: 0.7;
+}
