@@ -22,8 +22,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%; /* Increased padding to add space from screen edges */
-    background: #fff7f0; /* Light warm background */
+    padding: 15px 5%;
+    background: #fff7f0;
     border-bottom: 1px solid #e2dedb;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -40,38 +40,61 @@ body {
     gap: 20px;
 }
 
-/* Menu Links as Buttons */
 .menu a {
     text-decoration: none;
     color: #b0754a;
-    padding: 8px 15px; /* Added padding for button-like appearance */
+    padding: 8px 15px;
     border-radius: 8px;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .menu a:hover {
-    background-color: #d89b61; /* Color change on hover */
+    background-color: #d89b61;
     color: #fdfcf7;
 }
 
-/* Responsive Navbar Adjustments */
+/* Hamburger Menu for smaller screens */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #b0754a;
+    transition: all 0.3s ease;
+}
+
+/* Mobile View: Navbar Collapse */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        padding: 15px 5%; /* Adjusted padding for smaller screens */
+        padding: 15px 5%;
     }
 
     .menu {
+        display: none;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
         margin-top: 10px;
     }
 
+    .menu.active {
+        display: flex;
+    }
+
     .menu a {
         width: 100%;
         padding: 10px 15px;
+    }
+
+    .menu-icon {
+        display: flex;
     }
 }
 
@@ -110,113 +133,14 @@ body {
     background: #b0754a;
 }
 
-/* Services Section */
-.services {
+/* Additional CSS for other sections */
+.services, .products, .contact {
     padding: 60px 0;
-    text-align: center;
 }
 
-.services h2 {
-    color: #d89b61;
-    margin-bottom: 40px;
-}
-
-.service-items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.service-item {
-    width: 30%;
-    margin: 20px 0;
-    text-align: center;
-}
-
-.service-item img {
-    width: 60px;
-    margin-bottom: 15px;
-}
-
-.service-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-/* Products Section */
-.products {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.products h2 {
-    color: #d89b61;
-    margin-bottom: 40px;
-}
-
-.product-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.product-item {
-    width: 48%;
-    margin-bottom: 10px;
-}
-
-.product-item img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-/* Contact Section */
-.contact {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.contact form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-}
-
-.contact input, .contact textarea {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.contact button {
-    background: #b0754a;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 30px;
-    transition: background 0.3s ease;
-}
-
-/* Footer */
 footer {
     background: #b0754a;
     color: #fff;
     padding: 20px 0;
     text-align: center;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer .social-icons a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer .social-icons a:hover {
-    color: #d89b61;
 }
