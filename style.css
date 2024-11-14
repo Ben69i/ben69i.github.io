@@ -42,15 +42,29 @@ body {
     color: #d89b61;
 }
 
-/* Hero Section */
+/* Hero Section with Responsive Logo */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
     background: url('hero-bg.jpg') no-repeat center center/cover;
     color: #fdfcf7;
+}
+
+.hero-logo {
+    width: 150px; /* Adjust size as needed */
+    max-width: 80%;
+    margin-bottom: 20px; /* Spacing below logo */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Optional: Animation for the logo to fade in */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
@@ -70,10 +84,18 @@ body {
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
+    transition: background 0.3s ease;
 }
 
 .cta-button:hover {
     background: #b0754a;
+}
+
+/* Responsive Logo Size Adjustment */
+@media (max-width: 768px) {
+    .hero-logo {
+        width: 120px; /* Smaller size for mobile */
+    }
 }
 
 /* Services Section */
@@ -162,6 +184,7 @@ body {
     padding: 10px;
     border: none;
     border-radius: 30px;
+    transition: background 0.3s ease;
 }
 
 /* Footer */
