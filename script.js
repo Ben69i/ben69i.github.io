@@ -1,27 +1,30 @@
-// Smooth scrolling effect
-document.querySelectorAll('.menu a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+// Shopping Cart functionality
+let cart = [];
+
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const basketItemsList = document.getElementById('basket-items');
+
+// Function to update the basket UI
+function updateBasket() {
+    basketItemsList.innerHTML = '';  // Clear the current list
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Product ${item.id}`;
+        basketItemsList.appendChild(listItem);
+    });
+}
+
+// Add event listeners to "Add to Basket" buttons
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        const productId = this.parentElement.getAttribute('data-id');
+        cart.push({ id: productId });
+        updateBasket();
     });
 });
 
-// Toggle Navbar for smaller screens
-const menuIcon = document.getElementById('menu-icon');
-const navbarLinks = document.getElementById('navbar-links');
-
-menuIcon.addEventListener('click', () => {
-    navbarLinks.classList.toggle('active');
-});
-
-// Close the menu when a link is clicked (for mobile)
-document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            navbarLinks.classList.remove('active');
-        }
-    });
-});
+// Handle Checkout button
+document.getElementById('checkout').addEventListener('click', function () {
+    if (cart.length === 0) {
+        alert('Your basket is empty.');
+    } else
