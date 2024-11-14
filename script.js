@@ -27,4 +27,15 @@ addToCartButtons.forEach(button => {
 document.getElementById('checkout').addEventListener('click', function () {
     if (cart.length === 0) {
         alert('Your basket is empty.');
-    } else
+    } else {
+        alert('Proceeding to checkout!');
+    }
+});
+
+// Handle Login Form Submission
+document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Logged in successfully!');
+});
+
+// Handle Sign-Up Form Submission
