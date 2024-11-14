@@ -22,7 +22,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 2%; /* Added padding to create space from screen edges */
+    padding: 15px 5%; /* Increased padding to add space from screen edges */
     background: #fff7f0; /* Light warm background */
     border-bottom: 1px solid #e2dedb;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -40,16 +40,17 @@ body {
     gap: 20px;
 }
 
+/* Menu Links as Buttons */
 .menu a {
     text-decoration: none;
     color: #b0754a;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 8px 15px; /* Added padding for button-like appearance */
+    border-radius: 8px;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .menu a:hover {
-    background-color: #d89b61;
+    background-color: #d89b61; /* Color change on hover */
     color: #fdfcf7;
 }
 
@@ -58,7 +59,7 @@ body {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        padding: 15px 5%; /* Increase padding slightly for smaller screens */
+        padding: 15px 5%; /* Adjusted padding for smaller screens */
     }
 
     .menu {
