@@ -8,7 +8,7 @@
 
 body {
     color: #333;
-    background: #fdfcf7; /* Warm beige background */
+    background: #fdfcf7;
 }
 
 .container {
@@ -24,8 +24,6 @@ body {
     align-items: center;
     padding: 15px 5%;
     background: #fff7f0;
-    border-bottom: 1px solid #e2dedb;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .logo-text {
@@ -35,12 +33,8 @@ body {
     text-decoration: none;
 }
 
-.menu {
-    display: flex;
-    gap: 20px;
-}
-
 .menu a {
+    margin-left: 20px;
     text-decoration: none;
     color: #b0754a;
     padding: 8px 15px;
@@ -51,51 +45,6 @@ body {
 .menu a:hover {
     background-color: #d89b61;
     color: #fdfcf7;
-}
-
-/* Hamburger Menu for smaller screens */
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #b0754a;
-    transition: all 0.3s ease;
-}
-
-/* Mobile View: Navbar Collapse */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px 5%;
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .menu.active {
-        display: flex;
-    }
-
-    .menu a {
-        width: 100%;
-        padding: 10px 15px;
-    }
-
-    .menu-icon {
-        display: flex;
-    }
 }
 
 /* Hero Section */
@@ -126,21 +75,83 @@ body {
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s ease;
 }
 
 .cta-button:hover {
     background: #b0754a;
 }
 
-/* Additional CSS for other sections */
-.services, .products, .contact {
+/* Products Section */
+.products {
     padding: 60px 0;
+    text-align: center;
 }
 
+.products h2 {
+    color: #d89b61;
+    margin-bottom: 40px;
+}
+
+.product-gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    width: 22%;
+    text-align: center;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.add-to-cart {
+    background: #d89b61;
+    color: #fdfcf7;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.add-to-cart:hover {
+    background: #b0754a;
+}
+
+/* Basket Section */
+.basket {
+    padding: 60px 0;
+    background-color: #fdfcf7;
+}
+
+#basket-items {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#basket-items li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Footer */
 footer {
     background: #b0754a;
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+footer .social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .social-icons a:hover {
+    color: #d89b61;
 }
