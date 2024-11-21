@@ -60,19 +60,21 @@ body {
 
 .hero-content {
     max-width: 600px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay to enhance text visibility */
     padding: 40px;
     border-radius: 12px;
 }
 
 .hero h1 {
-    font-size: 3em;
+    font-size: 3.5em;
     margin-bottom: 0.5em;
+    color: #fdfcf7; /* Ensure text color stands out */
 }
 
 .hero p {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-bottom: 1em;
+    color: #fdfcf7; /* Ensure text color stands out */
 }
 
 .cta-button {
