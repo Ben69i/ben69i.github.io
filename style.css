@@ -123,14 +123,15 @@ body {
 
 /* Contact Us Section */
 .contact {
-    padding: 60px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Center the section vertically */
+    height: 100vh; /* Full viewport height */
     background: linear-gradient(135deg, #fff7f0, #fdfcf7);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    margin: 40px 0;
+    padding: 40px;
 }
 
 .contact h2 {
@@ -156,7 +157,8 @@ body {
     gap: 15px;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -167,7 +169,8 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact input:focus, .contact textarea:focus {
+.contact input:focus,
+.contact textarea:focus {
     border-color: #b0754a;
     box-shadow: 0 0 8px rgba(176, 117, 74, 0.4);
     outline: none;
@@ -187,6 +190,8 @@ body {
     cursor: pointer;
     font-size: 1.1em;
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px; /* Add space between the form and the button */
+    align-self: center; /* Ensure the button is centered */
 }
 
 .contact button:hover {
