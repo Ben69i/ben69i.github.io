@@ -68,13 +68,13 @@ body {
 .hero h1 {
     font-size: 3.5em;
     margin-bottom: 0.5em;
-    color: #fdfcf7; /* Ensure text color stands out */
+    color: #000000; /* Ensure text color stands out */
 }
 
 .hero p {
     font-size: 1.5em;
     margin-bottom: 1em;
-    color: #fdfcf7; /* Ensure text color stands out */
+    color: #d89b61; /* Ensure text color stands out */
 }
 
 .cta-button {
