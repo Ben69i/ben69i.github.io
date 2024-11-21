@@ -112,36 +112,6 @@ body {
     border-radius: 10px;
 }
 
-.add-to-cart {
-    background: #d89b61;
-    color: #fdfcf7;
-    padding: 8px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-}
-
-.add-to-cart:hover {
-    background: #b0754a;
-}
-
-/* Basket Section */
-.basket {
-    padding: 60px 0;
-    background-color: #fdfcf7;
-}
-
-#basket-items {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-#basket-items li {
-    margin: 10px 0;
-    font-size: 1.2em;
-}
-
 /* Footer */
 footer {
     background: #b0754a;
