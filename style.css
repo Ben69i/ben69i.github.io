@@ -127,7 +127,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff7f0;
+    background: linear-gradient(135deg, #fff7f0, #fdfcf7);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 40px 0;
 }
 
 .contact h2 {
@@ -137,33 +140,36 @@ body {
 }
 
 .contact p {
-    max-width: 600px;
+    max-width: 700px;
     margin-bottom: 30px;
     color: #555;
     text-align: center;
+    font-size: 1.1em;
 }
 
 .contact form {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
 
 .contact input, .contact textarea {
     width: 100%;
-    margin: 10px 0;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1em;
     background: #fff;
-    transition: border-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact input:focus, .contact textarea:focus {
     border-color: #b0754a;
+    box-shadow: 0 0 8px rgba(176, 117, 74, 0.4);
     outline: none;
 }
 
@@ -175,22 +181,27 @@ body {
 .contact button {
     background: #b0754a;
     color: #fff;
-    padding: 12px 25px;
+    padding: 12px 30px;
     border-radius: 30px;
     border: none;
     cursor: pointer;
     font-size: 1.1em;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact button:hover {
     background: #d89b61;
+    box-shadow: 0 5px 10px rgba(216, 155, 97, 0.3);
 }
 
 /* About Us Section */
 .about {
     padding: 60px 0;
     text-align: center;
+    background-color: #fdfcf7;
+    margin: 40px 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .about h2 {
@@ -204,6 +215,7 @@ body {
     margin: 0 auto 20px auto;
     color: #555;
     line-height: 1.8;
+    font-size: 1.1em;
 }
 
 /* Footer */
