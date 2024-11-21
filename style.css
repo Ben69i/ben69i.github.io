@@ -56,35 +56,62 @@ body {
 .hero {
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
     background: url('hero-bg.jpg') no-repeat center center/cover;
     color: #fdfcf7;
+    position: relative; /* To add the overlay effect */
+    padding: 0 20px;
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for text visibility */
+    z-index: -1; /* Make sure it sits behind the content */
+}
+
+.hero-content {
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.6); /* Slightly less dark background for contrast */
 }
 
 .hero h1 {
     font-size: 3em;
     margin-bottom: 0.5em;
+    color: #fdfcf7; /* Ensure text color stands out */
+    line-height: 1.3; /* Make the heading a little more spaced out */
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 1em;
+    color: #fdfcf7; /* Ensure text color stands out */
+    line-height: 1.6; /* Improve readability */
 }
 
 .cta-button {
     background: #d89b61;
     color: #fdfcf7;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s ease;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.1em; /* Slightly smaller font for balance */
 }
 
 .cta-button:hover {
     background: #b0754a;
+    transform: scale(1.05); /* A subtle scale effect for the button */
 }
 
 /* Products Section */
