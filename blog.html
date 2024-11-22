@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyra Optics</title>
+    <link rel="stylesheet" href="style_blog.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo-text">Lyra Optics</a>
+            <div class="menu" id="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About Us</a>
+                <a href="#news">News</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Excellence in Optical Solutions</h1>
+            <p>Your trusted source for cutting-edge optical technology.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="news-container">
+            <h2>Latest News</h2>
+            <div class="news-form">
+                <input type="text" id="news-title" placeholder="Enter News Title" required>
+                <textarea id="news-content" placeholder="Enter News Content" rows="4" required></textarea>
+                <input type="text" id="news-author" placeholder="Author Name" required>
+                <input type="datetime-local" id="news-date" required>
+                <input type="file" id="news-image" accept="image/*" required>
+                <button id="add-news" class="cta-button">Publish News</button>
+            </div>
+            <div class="news-grid" id="news-grid"></div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Please fill out the form below or reach out to us via email or phone.</p>
+            <form id="contact-form">
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone Number (optional)">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to Lyra Optics, where we bring you cutting-edge optical technology designed to meet your needs. 
+            Our mission is to deliver excellence in every product and service we offer.</p>
+            <p>Founded by a team of dedicated professionals, Lyra Optics combines innovation, expertise, and passion for optical solutions. 
+            Whether you are looking for top-notch products or industry-leading customer service, we are here to help you see the world better.</p>
+            <p>We can be reached via Email: lyraoptics.info@gmail.com or Phone: +98 912 593 6346<br>
+            direct message to CEO Hadi Lotfizadeh: lyraoptics.ceo@gmail.com</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Lyra Optics. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/hadi_lotfizadeh" target="_blank">Instagram</a>
+            <a href="https://t.me/+989125936346" target="+989125936346">Telegram</a>
+            <a href="https://api.whatsapp.com/send?phone=989125936346" target="+989125936346">WhatsApp</a>
+        </div>
+    </footer>
+
+    <script>
+        // Handle News Form Submission
+        document.getElementById('add-news').addEventListener('click', function () {
+            const title = document.getElementById('news-title').value;
+            const content = document.getElementById('news-content').value;
+            const author = document.getElementById('news-author').value;
+            const date = document.getElementById('news-date').value;
+            const image = document.getElementById('news-image').files[0];
+
+            if (title && content && author && date && image) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    const imgSrc = reader.result;
+                    const newsArticle = `
+                        <div class="news-item">
+                            <img src="${imgSrc}" alt="News Image" class="news-image">
+                            <h3>${title}</h3>
+                            <p>${content}</p>
+                            <p><strong>By:</strong> ${author} | <strong>Published on:</strong> ${new Date(date).toLocaleString()}</p>
+                        </div>
+                    `;
+                    document.getElementById('news-grid').innerHTML += newsArticle;
+                    // Reset the form fields
+                    document.getElementById('news-title').value = '';
+                    document.getElementById('news-content').value = '';
+                    document.getElementById('news-author').value = '';
+                    document.getElementById('news-date').value = '';
+                    document.getElementById('news-image').value = '';
+                };
+                reader.readAsDataURL(image);
+            } else {
+                alert('Please fill in all fields!');
+            }
+        });
+    </script>
+
+    <style>
+        .news-container {
+            padding: 20px;
+        }
+        .news-form {
+            margin-bottom: 20px;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .news-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .news-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 150px;
+        }
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

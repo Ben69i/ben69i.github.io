@@ -8,9 +8,9 @@
 
 body {
     color: #333;
-    background: #fdfcf7;
+    background: #fff7f0;
     line-height: 1.6;
-}
+
 /* Container */
 .container {
     width: 90%;
@@ -62,6 +62,8 @@ body {
     background: url('hero-bg.jpg') no-repeat center center/cover;
     color: #fdfcf7;
     padding: 0 20px;
+    background-color: #fffcf4;
+    color: white;
 }
 
 .hero h1 {
