@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyra Optics</title>
     <link rel="stylesheet" href="style_blog.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <header>
@@ -31,18 +33,23 @@
     </section>
 
     <!-- News Section -->
-    <section id="news" class="news">
-        <div class="news-container">
-            <h2>Latest News</h2>
-            <div class="news-form">
-                <input type="text" id="news-title" placeholder="Enter News Title" required>
-                <textarea id="news-content" placeholder="Enter News Content" rows="4" required></textarea>
-                <input type="text" id="news-author" placeholder="Author Name" required>
-                <input type="datetime-local" id="news-date" required>
-                <input type="file" id="news-image" accept="image/*" required>
-                <button id="add-news" class="cta-button">Publish News</button>
-            </div>
-            <div class="news-grid" id="news-grid"></div>
+    <section id="news" class="news-container">
+        <h2>Latest News</h2>
+        
+        <!-- News Form -->
+        <div class="news-form">
+            <h3>Post a News Article</h3>
+            <input type="text" id="news-title" placeholder="News Title" required>
+            <textarea id="news-content" placeholder="News Content" rows="4" required></textarea>
+            <input type="text" id="news-author" placeholder="Author Name" required>
+            <input type="datetime-local" id="news-date" required>
+            <input type="file" id="news-image" accept="image/*" required>
+            <button type="button" id="add-news" class="cta-button">Publish News</button>
+        </div>
+
+        <!-- News Grid -->
+        <div id="news-grid" class="news-grid">
+            <!-- News articles will appear here -->
         </div>
     </section>
 
@@ -52,9 +59,9 @@
             <h2>Contact Us</h2>
             <p>We'd love to hear from you! Please fill out the form below or reach out to us via email or phone.</p>
             <form id="contact-form">
-                <input type="email" placeholder="Your Email" required>
-                <input type="tel" placeholder="Your Phone Number (optional)">
-                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <input type="email" id="contact-email" placeholder="Your Email" required>
+                <input type="tel" id="contact-phone" placeholder="Your Phone Number (optional)">
+                <textarea id="contact-message" placeholder="Your Message" rows="5" required></textarea>
                 <button type="submit" class="cta-button">Send Message</button>
             </form>
         </div>
@@ -82,72 +89,168 @@
     </footer>
 
     <script>
+        // Predefined authorization key
+        const AUTHORIZATION_KEY = "LyraAdmin2024";
+
+        // Function to load news from localStorage and display it
+        function loadNews() {
+            const newsGrid = document.getElementById('news-grid');
+            const newsData = JSON.parse(localStorage.getItem('newsArticles')) || [];
+            newsGrid.innerHTML = ''; // Clear current news grid
+            newsData.forEach((article, index) => {
+                const newsArticle = `
+                    <div class="news-item">
+                        <img src="${article.image}" alt="News Image" class="news-image">
+                        <h3>${article.title}</h3>
+                        <p>${article.content}</p>
+                        <p><strong>By:</strong> ${article.author} | <strong>Published on:</strong> ${new Date(article.date).toLocaleString()}</p>
+                        <button class="remove-news" data-index="${index}">Remove</button>
+                    </div>
+                `;
+                newsGrid.innerHTML += newsArticle;
+            });
+
+            // Attach remove event listener to remove buttons
+            document.querySelectorAll('.remove-news').forEach(button => {
+                button.addEventListener('click', function () {
+                    const index = button.getAttribute('data-index');
+                    const enteredKey = prompt("Enter the authorization key to remove this news article:");
+
+                    if (enteredKey === AUTHORIZATION_KEY) {
+                        removeNewsArticle(index);
+                    } else {
+                        alert("Unauthorized! You do not have permission to remove this article.");
+                    }
+                });
+            });
+        }
+
         // Handle News Form Submission
         document.getElementById('add-news').addEventListener('click', function () {
-            const title = document.getElementById('news-title').value;
-            const content = document.getElementById('news-content').value;
-            const author = document.getElementById('news-author').value;
-            const date = document.getElementById('news-date').value;
-            const image = document.getElementById('news-image').files[0];
+            const enteredKey = prompt("Enter the authorization key to publish news:");
 
-            if (title && content && author && date && image) {
-                const reader = new FileReader();
-                reader.onload = function () {
-                    const imgSrc = reader.result;
-                    const newsArticle = `
-                        <div class="news-item">
-                            <img src="${imgSrc}" alt="News Image" class="news-image">
-                            <h3>${title}</h3>
-                            <p>${content}</p>
-                            <p><strong>By:</strong> ${author} | <strong>Published on:</strong> ${new Date(date).toLocaleString()}</p>
-                        </div>
-                    `;
-                    document.getElementById('news-grid').innerHTML += newsArticle;
-                    // Reset the form fields
-                    document.getElementById('news-title').value = '';
-                    document.getElementById('news-content').value = '';
-                    document.getElementById('news-author').value = '';
-                    document.getElementById('news-date').value = '';
-                    document.getElementById('news-image').value = '';
-                };
-                reader.readAsDataURL(image);
+            if (enteredKey === AUTHORIZATION_KEY) {
+                const title = document.getElementById('news-title').value;
+                const content = document.getElementById('news-content').value;
+                const author = document.getElementById('news-author').value;
+                const date = document.getElementById('news-date').value;
+                const image = document.getElementById('news-image').files[0];
+
+                if (title && content && author && date && image) {
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        const imgSrc = reader.result;
+
+                        // Create a new news article object
+                        const newArticle = {
+                            title,
+                            content,
+                            author,
+                            date,
+                            image: imgSrc
+                        };
+
+                        // Get current news from localStorage
+                        const newsData = JSON.parse(localStorage.getItem('newsArticles')) || [];
+
+                        // Add the new article to the existing news
+                        newsData.push(newArticle);
+
+                        // Save the updated news back to localStorage
+                        localStorage.setItem('newsArticles', JSON.stringify(newsData));
+
+                        // Reload the news to update the grid
+                        loadNews();
+
+                        // Reset the form fields
+                        document.getElementById('news-title').value = '';
+                        document.getElementById('news-content').value = '';
+                        document.getElementById('news-author').value = '';
+                        document.getElementById('news-date').value = '';
+                        document.getElementById('news-image').value = '';
+                    };
+                    reader.readAsDataURL(image);
+                } else {
+                    alert('Please fill in all fields!');
+                }
             } else {
-                alert('Please fill in all fields!');
+                alert("Unauthorized! You do not have permission to publish news.");
             }
         });
+
+        // Function to remove news article
+        function removeNewsArticle(index) {
+            const newsData = JSON.parse(localStorage.getItem('newsArticles')) || [];
+            newsData.splice(index, 1); // Remove the article from the array
+            localStorage.setItem('newsArticles', JSON.stringify(newsData)); // Save updated data
+            loadNews(); // Reload news after removal
+        }
+
+        // Handle Contact Form Submission
+        async function getIpAddress() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('Error getting IP address:', error);
+                return 'Unknown';
+            }
+        }
+
+        function getPhoneModel() {
+            const userAgent = navigator.userAgent;
+            const phoneModels = ['iPhone', 'Android', 'iPad', 'Samsung', 'Nokia', 'Huawei', 'Pixel', 'OnePlus'];
+            for (let model of phoneModels) {
+                if (userAgent.includes(model)) {
+                    return model;
+                }
+            }
+            return 'Unknown';
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const email = document.getElementById('contact-email').value;
+            const phone = document.getElementById('contact-phone').value;
+            const message = document.getElementById('contact-message').value;
+            const time = new Date().toISOString(); // Current time
+            const ip = await getIpAddress(); // Get the user's IP address
+            const phoneModel = getPhoneModel(); // Get the user's phone model
+
+            // Prepare the data object
+            const contactData = {
+                email,
+                phone,
+                message,
+                time,
+                ip,
+                phoneModel
+            };
+
+            // Get the current contact submissions from localStorage or initialize as an empty array
+            const contactSubmissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+
+            // Add the new submission to the array
+            contactSubmissions.push(contactData);
+
+            // Save the updated submissions to localStorage
+            localStorage.setItem('contactSubmissions', JSON.stringify(contactSubmissions));
+
+            // Show confirmation
+            alert('Thank you for contacting us! Your message has been submitted.');
+
+            // Optionally reset the form
+            document.getElementById('contact-form').reset();
+        });
+
+        // Load news articles on page load
+        window.onload = loadNews;
     </script>
 
-    <style>
-        .news-container {
-            padding: 20px;
-        }
-        .news-form {
-            margin-bottom: 20px;
-        }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        .news-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-            background-color: #f9f9f9;
-        }
-        .news-item img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            max-height: 150px;
-        }
-        .cta-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
 </body>
+
 </html>
+
