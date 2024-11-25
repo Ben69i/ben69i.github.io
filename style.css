@@ -25,6 +25,7 @@ body {
 /* Navbar */
 .navbar {
     display: flex;
+    transition: background-color 0.5s ease, padding 0.3s ease;
     justify-content: space-between;
     align-items: center;
     background: #fff7f0;
@@ -40,7 +41,9 @@ body {
 .navbar.scrolled {
     background-color: #b0754a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 5%;
 }
+
 .navbar a {
     text-align:center;
 }
@@ -61,11 +64,29 @@ body {
     order: 2; /* Move menu items below the logo on smaller screens */
 }
 .menu a {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
     text-decoration: none;
     color: #b0754a;
     padding: 8px 15px;
     border-radius: 8px;
     transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menu a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #b0754a;
+    transition: width 0.3s;
+}
+
+.menu a:hover:after {
+    width: 100%;
 }
 
 .menu a:hover {
@@ -138,16 +159,27 @@ table th {
 
 /* Hero Section */
 .hero {
+    transition: background-color 0.5s ease, padding 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('hero-bg.jpg') no-repeat center center/cover;
-    color: #fdfcf7;
+    background: linear-gradient(to right, #f7e2c7, #d89b61);
     padding: 0 20px;
     background-color: #fffcf4;
     color: white;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .hero h1 {
@@ -165,6 +197,9 @@ table th {
 }
 
 .cta-button {
+    cursor: pointer;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
     background: #d89b61;
     color: #fdfcf7;
     padding: 12px 25px;
@@ -172,13 +207,13 @@ table th {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    transition: background 0.3s ease, transform 0.2s ease;
     font-size: 1.1em;
 }
 
 .cta-button:hover {
     background: #b0754a;
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    background-color: #b0754a;
 }
 
 /* Products Section */
@@ -194,19 +229,24 @@ table th {
 
 .product-gallery {
     display: flex;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+    gap: 2px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .product-item {
+    padding:10px;
     width: 22%;
     text-align: center;
     margin-bottom: 20px;
+    background-color: #f4f4f4;
 }
 
 .product-item img:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+    transition: transform .4s ease;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-item:hover p {
@@ -215,10 +255,19 @@ table th {
 
 .product-item img {
     width: 100%;
+    height:auto;
+    display:block;
+    margin:0 auto;
     border-radius: 10px;
     min-height: 200px; /* Adjust based on image size */
     object-fit: cover;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform .4s ease;
 }
 
 .product-item p {
@@ -291,6 +340,8 @@ table th {
 }
 
 .contact button {
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
     background: #b0754a;
     color: #fff;
     padding: 12px 30px;
@@ -298,12 +349,12 @@ table th {
     border: none;
     cursor: pointer;
     font-size: 1.1em;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
     align-self: center;
 }
 
 .contact button:hover {
     background: #d89b61;
+    transform: translateY(-5px);
     box-shadow: 0 5px 10px rgba(216, 155, 97, 0.3);
 }
 
@@ -355,6 +406,30 @@ footer .social-icons a:hover {
     color: #d89b61;
 }
 
+.cta-button, .menu a, .contact button {
+    outline: none; /* Remove default outline */
+}
+
+.cta-button:focus, .menu a:focus, .contact button:focus {
+    outline: 2px solid #d89b61;
+    background-color: #b0754a;
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b0754a;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .navbar {
@@ -363,7 +438,13 @@ footer .social-icons a:hover {
         padding:10px;
     }
 
+    .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
     .menu {
+        transform: translateY(-100%);
+        transition: transform 0.5s ease-in-out;
         display: none;
         flex-direction: column;
         width: 100%;
@@ -389,6 +470,7 @@ footer .social-icons a:hover {
     }
 
     .menu.open {
+        transform: translateY(0);
         display: flex; /* Show the menu when it's toggled open */
     }
 
@@ -405,8 +487,9 @@ footer .social-icons a:hover {
     }
 
     .product-gallery {
-        flex-direction: column;
         align-items: center;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 10px;
     }
 
     .product-item {
