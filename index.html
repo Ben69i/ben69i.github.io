@@ -18,6 +18,10 @@
                 <a href="#products">Products</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About Us</a>
+                <div class="language-switcher">
+            <button id="lang-en" class="lang-btn">EN</button>
+            <button id="lang-fa" class="lang-btn">FA</button>
+                </div>
             </div>
         </nav>
     </header>
@@ -111,18 +115,22 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Welcome to Lyra Optics, where we bring you cutting-edge optical technology designed to meet your needs.
-            Our mission is to deliver excellence in every product and service we offer.</p>
-            <p>Founded by a team of dedicated professionals, Lyra Optics combines innovation, expertise, and passion for optical solutions.
-            Whether you are looking for top-notch products or industry-leading customer service, we are here to help you see the world better.</p>
-            <p>We can be reached via Email: lyraoptics.info@gmail.com or Phone: +98 912 593 6346<br>
-            direct message to CEO Hadi Lotfizadeh: lyraoptics.ceo@gmail.com</p>
+<!-- About Us Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="imgs/1.png" alt="Your Photo" loading="lazy">
+            </div>
+            <div class="about-description">
+                <p>Founded by a team of dedicated professionals, Lyra Optics combines innovation, expertise, and passion for optical solutions.
+                Whether you are looking for top-notch products or industry-leading customer service, we are here to help you see the world better.</p>
+                <p>We can be reached via Email: lyraoptics.info@gmail.com or Phone: +98 912 593 6346</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
@@ -190,6 +198,117 @@
                 modal.style.display = "none";
             }
         });
+        const content = {
+    en: {
+        logoText: "Lyra Optics",
+        home: "Home",
+        products: "Products",
+        contact: "Contact",
+        about: "About Us",
+        heroHeading: "Excellence in Optical Solutions",
+        heroText: "Your trusted source for cutting-edge optical technology.",
+        ctaButton: "Get in Touch",
+        productsTitle: "Our Products",
+        productNames: [
+            "Product 1",
+            "Product 2",
+            "Product 3",
+            "Product 4",
+            "Product 5",
+            "Product 6",
+            "Product 7",
+            "Product 8",
+        ],
+        contactTitle: "Contact Us",
+        contactText:
+            "We'd love to hear from you! Please fill out the form below or reach out to us via email or phone.",
+        contactButton: "Send Message",
+        aboutTitle: "About Us",
+        aboutText: `Welcome to Lyra Optics, where we bring you cutting-edge optical technology designed to meet your needs.
+            Our mission is to deliver excellence in every product and service we offer.`,
+        footer: "© 2024 Lyra Optics. All rights reserved.",
+    },
+    fa: {
+        logoText: "لیرا اپتیک",
+        home: "خانه",
+        products: "محصولات",
+        contact: "تماس",
+        about: "درباره ما",
+        heroHeading: "برتری در راه‌حل‌های اپتیک",
+        heroText: "منبع قابل اعتماد شما برای فناوری‌های اپتیکی پیشرفته.",
+        ctaButton: "تماس با ما",
+        productsTitle: "محصولات ما",
+        productNames: [
+            "محصول ۱",
+            "محصول ۲",
+            "محصول ۳",
+            "محصول ۴",
+            "محصول ۵",
+            "محصول ۶",
+            "محصول ۷",
+            "محصول ۸",
+        ],
+        contactTitle: "تماس با ما",
+        contactText:
+            "ما دوست داریم از شما بشنویم! لطفاً فرم زیر را پر کنید یا از طریق ایمیل یا تلفن با ما تماس بگیرید.",
+        contactButton: "ارسال پیام",
+        aboutTitle: "درباره ما",
+        aboutText: `به لیرا اپتیک خوش آمدید، جایی که فناوری پیشرفته اپتیک را برای نیازهای شما ارائه می‌دهیم.
+            ماموریت ما ارائه بهترین خدمات و محصولات به شما است.`,
+        footer: "© ۲۰۲۴ لیرا اپتیک. کلیه حقوق محفوظ است.",
+    },
+};
+        document.addEventListener("DOMContentLoaded", () => {
+    const langEnButton = document.getElementById("lang-en");
+    const langFaButton = document.getElementById("lang-fa");
+
+    const translatePage = (language) => {
+        const langData = content[language];
+
+        // Update logo text
+        document.querySelector(".logo-text").textContent = langData.logoText;
+
+        // Update navbar links
+        document.querySelector("a[href='#home']").textContent = langData.home;
+        document.querySelector("a[href='#products']").textContent = langData.products;
+        document.querySelector("a[href='#contact']").textContent = langData.contact;
+        document.querySelector("a[href='#about']").textContent = langData.about;
+
+        // Update hero section
+        document.querySelector(".hero-content h1").textContent = langData.heroHeading;
+        document.querySelector(".hero-content p").textContent = langData.heroText;
+        document.querySelector(".cta-button").textContent = langData.ctaButton;
+
+        // Update products section
+        document.querySelector(".products h2").textContent = langData.productsTitle;
+        document.querySelectorAll(".product-item p").forEach((item, index) => {
+            item.textContent = langData.productNames[index];
+        });
+
+        // Update contact section
+        document.querySelector(".contact h2").textContent = langData.contactTitle;
+        document.querySelector(".contact p").textContent = langData.contactText;
+        document.querySelector(".contact button").textContent = langData.contactButton;
+
+        // Update about section
+        document.querySelector(".about h2").textContent = langData.aboutTitle;
+        document.querySelector(".about p").textContent = langData.aboutText;
+
+        // Update footer
+        document.querySelector("footer p").textContent = langData.footer;
+
+        // Set language direction
+        document.body.dir = language === "fa" ? "rtl" : "ltr";
+    };
+
+    // Event listeners for language buttons
+    langEnButton.addEventListener("click", () => translatePage("en"));
+    langFaButton.addEventListener("click", () => translatePage("fa"));
+
+    // Default language
+    translatePage("en");
+});
+
     </script>
 </body>
 </html>
