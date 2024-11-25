@@ -27,11 +27,17 @@ body {
     width: 100%;
 }
 
+.no-underline {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Navbar */
 .logo-img {
     height: 50px; /* Adjust the size of the logo */
     margin-right: 10px; /* Space between the logo and the text */
 }
+
 .navbar {
     display: flex;
     transition: background-color 0.5s ease, padding 0.3s ease;
