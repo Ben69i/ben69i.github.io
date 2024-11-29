@@ -581,6 +581,18 @@ footer .social-icons a:hover {
         margin: 0 5px;
         font-size: 1em;
     }
+
+    .image-item {
+        width: calc(100% - 20px); /* 1 column on mobile */
+    }
+
+    .gallery h2 {
+        font-size: 2em;
+    }
+
+    .gallery p {
+        font-size: 1em;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -709,21 +721,6 @@ footer .social-icons a:hover {
         width: calc(50% - 20px); /* 2 columns on tablet */
     }
 }
-
-@media (max-width: 768px) {
-    .image-item {
-        width: calc(100% - 20px); /* 1 column on mobile */
-    }
-
-    .gallery h2 {
-        font-size: 2em;
-    }
-
-    .gallery p {
-        font-size: 1em;
-    }
-}
-
 
 .modal-content {
     display: flex;
