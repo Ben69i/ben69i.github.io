@@ -165,6 +165,16 @@
         menuToggle.addEventListener('click', () => {
             navbarLinks.classList.toggle('open'); // Toggle the 'open' class on the menu
         });
+
+        // Hide image if source is invalid
+        document.querySelectorAll('.image-item img').forEach(img => {
+            img.onerror = function() {
+                this.style.display = 'none'; // Hide the image if it fails to load
+            };
+            if (!img.src || img.src.includes('.png') === false) {
+                img.style.display = 'none'; // Hide if there's no valid image source
+            }
+        });
     </script>
 </body>
 </html>
