@@ -606,7 +606,7 @@ footer .social-icons a:hover {
 
 .lang-btn {
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #d89b61;
     color: white;
     border: none;
     border-radius: 5px;
@@ -615,11 +615,11 @@ footer .social-icons a:hover {
 }
 
 .lang-btn:hover {
-    background-color: #0056b3;
+    background-color: #b0754a;
 }
 
 .lang-btn.active {
-    background-color: #0056b3;
+    background-color: #b0754a;
     font-weight: bold;
 }
 /* Gallery Section */
