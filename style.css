@@ -6,8 +6,15 @@
     font-family: 'Poppins','Arial', sans-serif;
 }
 
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 html {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body[dir="rtl"] {
@@ -16,9 +23,11 @@ body[dir="rtl"] {
 }
 
 body {
+    font-family: 'Poppins', Arial, sans-serif;
     color: #333;
     background: #fff7f0;
     line-height: 1.6;
+    font-smoothing: antialiased;
 
 /* Container */
 .container {
@@ -27,11 +36,25 @@ body {
     width: 100%;
 }
 
+.no-underline {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Navbar */
 .logo-img {
     height: 50px; /* Adjust the size of the logo */
     margin-right: 10px; /* Space between the logo and the text */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
+.logo-img:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+    filter: brightness(1.2); /* Brighten the logo */
+}
+.logo-text:hover {
+    text-decoration: underline;
+}
+
 .navbar {
     display: flex;
     transition: background-color 0.5s ease, padding 0.3s ease;
@@ -73,6 +96,7 @@ body {
     order: 2; /* Move menu items below the logo on smaller screens */
 }
 .menu a {
+    text-align: center;
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -98,6 +122,12 @@ body {
     width: 100%;
 }
 
+.menu-toggle {
+    font-size: 2.5rem;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
 .menu a:hover {
     background-color: #d89b61;
     color: #fdfcf7;
@@ -500,7 +530,7 @@ footer .social-icons a:hover {
         background-color: #fff7f0;
         padding: 15px 0;
         position: absolute;
-        top: 110px; /* Adjust to navbar height */
+        top: 89px; /* Adjust to navbar height */
         left: 0;
         z-index: 999;
     }
@@ -539,6 +569,7 @@ footer .social-icons a:hover {
         align-items: center;
         grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
         gap: 10px;
+
     }
 
     .product-item {
@@ -635,6 +666,17 @@ footer .social-icons a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .image-item:hover {
@@ -643,15 +685,21 @@ footer .social-icons a:hover {
 }
 
 .image-item img {
+    transition: transform 0.3s ease, filter 0.3s ease;
     width: 100%;
     height: auto;
     display: block;
     border-bottom: 1px solid #ddd;
 }
 
+.image-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
 .image-info {
     padding: 15px;
-    text-align: left;
+    text-align: center;
     background-color: #f9f9f9;
     font-size: 0.9em;
 }
@@ -676,4 +724,83 @@ footer .social-icons a:hover {
     .image-item {
         width: calc(100% - 20px); /* 1 column on mobile */
     }
+
+    .gallery h2 {
+        font-size: 2em;
+    }
+
+    .gallery p {
+        font-size: 1em;
+    }
 }
+
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slideshow-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+
+.slideshow-section img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.slide-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+.slide-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+#prev-slide {
+    left: 10px;
+}
+
+#next-slide {
+    right: 10px;
+}
+
+.description-section {
+    text-align: left;
+}
+
+@media (prefers-contrast: high) {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+    .menu a {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
