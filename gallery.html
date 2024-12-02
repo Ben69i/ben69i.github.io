@@ -28,6 +28,11 @@
     </header>
 
     <!-- Gallery Section -->
+    <div id="imageModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+    </div>
     <section id="gallery" class="gallery">
         <div class="container">
             <h2>Gallery</h2>
@@ -175,6 +180,35 @@
                 img.style.display = 'none'; // Hide if there's no valid image source
             }
         });
+        // Get the modal and the image elements
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const caption = document.getElementById("caption");
+const closeButton = document.querySelector(".close-button");
+
+// Get all the gallery images
+const images = document.querySelectorAll(".image-item img");
+
+images.forEach(img => {
+  img.addEventListener("click", function() {
+    modal.style.display = "block";
+    modalImage.src = this.src;
+    caption.textContent = this.alt;  // Display image's alt text as caption
+  });
+});
+
+// When the user clicks the close button, close the modal
+closeButton.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+// Close the modal if the user clicks outside the image
+window.addEventListener("click", function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
     </script>
 </body>
 </html>
