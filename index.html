@@ -23,7 +23,7 @@
                 <a href="#products">Products</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About Us</a>
-                <a href="gallery.html">My art</a>
+                <a href="gallery.html">Gallery</a>
                 <div class="language-switcher">
                     <button id="lang-en" class="lang-btn">EN</button>
                     <button id="lang-fa" class="lang-btn">FA</button>
@@ -141,7 +141,7 @@
             <div class="about-description">
                 <p>Founded by a team of dedicated professionals, Lyra Optics combines innovation, expertise, and passion for optical solutions.
                 Whether you are looking for top-notch products or industry-leading customer service, we are here to help you see the world better.</p>
-                <p>We can be reached via Email: <a href="mailto:lyraoptics.info@gmail.com">lyraoptics.info@gmail.com</a> or Phone: <a href="tel:+989125936346">+98 912 593 6346</a></p>
+                <p>Email: <a href="mailto:lyraoptics.info@gmail.com">lyraoptics.info@gmail.com</a>  Phone: <a href="tel:+989125936346">+98 912 593 6346</a></p>
             </div>
         </div>
     </div>
@@ -154,6 +154,10 @@
             <a href="https://www.instagram.com/hadi_lotfizadeh" target="_blank">Instagram</a>
             <a href="https://t.me/+989125936346" target="+989125936346">Telegram</a>
             <a href="https://api.whatsapp.com/send?phone=989125936346" target="+989125936346">WhatsApp</a>
+        </div>
+        <div class="tg-channel">
+            <a href="https://t.me/telescopemirrormaking" target="_blank">
+                Telegram Channel</a>
         </div>
     </footer>
 
@@ -220,6 +224,7 @@
         products: "Products",
         contact: "Contact",
         about: "About Us",
+        gallery: "Gallery",
         heroHeading: "Excellence in Optical Solutions",
         heroText: "Your trusted source for cutting-edge 6-18 inches telescopes.",
         ctaButton: "Get in Touch",
@@ -242,6 +247,12 @@
         aboutText: `Welcome to Lyra Optics, where we bring you cutting-edge optical technology designed to meet your needs.
             Our mission is to deliver excellence in every product and service we offer.`,
         footer: "© 2024 Lyra Optics. All rights reserved.",
+        tgChannel: "Telegram Channel",
+        socialLinks: {
+            instagram: "Instagram",
+            telegram: "Telegram",
+            whatsapp: "WhatsApp"
+        },
     },
     fa: {
         logoText: "لیرا اپتیک",
@@ -249,6 +260,7 @@
         products: "محصولات",
         contact: "تماس",
         about: "درباره ما",
+        gallery: "گالری",
         heroHeading: "برتری در راه‌حل‌های اپتیک",
         heroText: "منبع قابل اعتماد شما برای تلسکوپ‌های پیشرفته با اندازه ۶ تا ۱۸ اینچ.",
         ctaButton: "تماس با ما",
@@ -271,6 +283,12 @@
         aboutText: `به لیرا اپتیک خوش آمدید، جایی که فناوری پیشرفته اپتیک را برای نیازهای شما ارائه می‌دهیم.
             ماموریت ما ارائه بهترین خدمات و محصولات به شما است.`,
         footer: "© ۲۰۲۴ لیرا اپتیک. کلیه حقوق محفوظ است.",
+        tgChannel: "کانال تلگرام",
+        socialLinks: {
+            instagram: "اینستاگرام",
+            telegram: "تلگرام",
+            whatsapp: "واتساپ"
+        },
     },
 };
         document.addEventListener("DOMContentLoaded", () => {
@@ -288,6 +306,7 @@
         document.querySelector("a[href='#products']").textContent = langData.products;
         document.querySelector("a[href='#contact']").textContent = langData.contact;
         document.querySelector("a[href='#about']").textContent = langData.about;
+        document.querySelector("a[href='gallery.html']").textContent = langData.gallery;
 
         // Update hero section
         document.querySelector(".hero-content h1").textContent = langData.heroHeading;
@@ -311,6 +330,7 @@
 
         // Update footer
         document.querySelector("footer p").textContent = langData.footer;
+        document.querySelector(".tg-channel a").textContent = langData.tgChannel;
 
         // Set language direction
         document.body.dir = language === "fa" ? "rtl" : "ltr";
