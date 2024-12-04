@@ -133,57 +133,6 @@
     }
 }
 
-
-
-
-
-/*... (rest of the code remains the same) */
-
-@media only screen and (min-width: 800px) and (max-width: 1023px) {
- .navbar {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #333;
-    color: #fff;
-    z-index: 1000;
-  }
-
- .logo {
-    max-width: 20%; /* Adjust the percentage to your desired size */
-    height: auto;
-  }
-
- .navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-
- .navbar li {
-    margin-right: 20px;
-  }
-
- .navbar a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
- .navbar a:hover {
-    color: #ccc;
-  }
-
- .container {
-    padding-top: 60px; /* Adjust this value as needed */
-  }
-}
-
-
-
 /* Basic Reset */
 * {
     margin: 0;
