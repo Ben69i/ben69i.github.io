@@ -755,10 +755,11 @@ footer .tg-channel a:hover {
     }
 
     .product-gallery {
-        align-items: center;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-        gap: 1000px;
-
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+        display: flex;
+        gap: 2px;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .product-item {
