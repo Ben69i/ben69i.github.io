@@ -762,7 +762,7 @@ footer .tg-channel a:hover {
 }
 
 /* Optimized for devices with max-width of 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     /* Navbar */
     .navbar {
         flex-direction: column;
