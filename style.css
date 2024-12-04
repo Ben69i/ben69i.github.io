@@ -715,10 +715,6 @@ footer .tg-channel a:hover {
     color: #b0754a;
 }
 
-/* Optimized for devices with max-width of 1024px */
-
-
-
 .modal-content {
     display: flex;
     flex-direction: column;
