@@ -570,9 +570,8 @@ footer .tg-channel a:hover {
 
     .product-gallery {
         display: grid;
-        justify-content: space-between;
         grid-template-columns: repeat(2, 1fr); /* Create 2 columns */
-        grid-gap: 5px; /* Add some gap between grid items */
+        grid-gap: 2px; /* Add some gap between grid items */
     }
     
     
