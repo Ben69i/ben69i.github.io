@@ -1,6 +1,6 @@
 /*... (rest of the code remains the same) */
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 800px) and (max-width: 1023px) {
  .navbar {
     position: relative;
     display: flex;
