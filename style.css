@@ -36,7 +36,13 @@
  .container {
     padding-top: 60px; /* Adjust this value as needed */
   }
+
+ .logo {
+    width: 100px; /* Adjust the logo width to a smaller size */
+    height: auto;
+  }
 }
+
 
 
 /* Basic Reset */
