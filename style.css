@@ -152,8 +152,8 @@ body {
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
     animation: modal-appear 0.5s ease-in-out;
@@ -174,12 +174,12 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 table th, table td {
     text-align: left;
-    padding: 8px;
+    padding: 5px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -543,7 +543,7 @@ footer .tg-channel a:hover {
     }
 
     table th, table td {
-        padding: 12px; /* Larger padding for smaller screens */
+        padding: 10px; /* Larger padding for smaller screens */
         font-size: 1em; /* Adjust font size for readability */
     }
 
