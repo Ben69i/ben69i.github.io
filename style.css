@@ -12,6 +12,11 @@
     z-index: 1000;
   }
 
+ .logo {
+    max-width: 20%; /* Adjust the percentage to your desired size */
+    height: auto;
+  }
+
  .navbar ul {
     list-style: none;
     margin: 0;
@@ -35,11 +40,6 @@
 
  .container {
     padding-top: 60px; /* Adjust this value as needed */
-  }
-
- .logo {
-    width: 100px; /* Adjust the logo width to a smaller size */
-    height: auto;
   }
 }
 
