@@ -523,6 +523,21 @@ footer .tg-channel a:hover {
     .modal {
         background-color: rgba(0, 0, 0, 0.5);
     }
+    
+     .close-button {
+        font-size: 1.2em;
+        top: 15px;
+        right: 15px;
+    }
+
+    table th, table td {
+        padding: 12px; /* Larger padding for smaller screens */
+        font-size: 1em; /* Adjust font size for readability */
+    }
+
+    table {
+        font-size: 0.9em; /* Adjust font size on mobile */
+    }
 
     .menu {
         transform: translateY(-100%);
