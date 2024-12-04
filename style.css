@@ -527,7 +527,7 @@ footer .tg-channel a:hover {
     .modal img {
         width: 90%; /* Shrink image to 90% of the screen width on mobile */
         max-width: 500px; /* Restrict maximum width on mobile */
-        height: auto; /* Keep aspect ratio intact */
+        height: 85%; /* Keep aspect ratio intact */
     }
     
      .close-button {
