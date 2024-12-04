@@ -15,7 +15,7 @@
         height: 2px;
         background-color: #b0754a;
         transition: width 0.3s;
-}
+    }
 
     .menu a {
         padding: 5px;
@@ -32,7 +32,7 @@
 
     .menu a:hover:after {
     width: 100%;
-}
+    }
 
     .menu.open {
         transform: translateY(0);
@@ -757,7 +757,7 @@ footer .tg-channel a:hover {
     .product-gallery {
         align-items: center;
         grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-        gap: 10px;
+        gap: 1000px;
 
     }
 
