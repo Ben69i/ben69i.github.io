@@ -569,11 +569,10 @@ footer .tg-channel a:hover {
     }
 
     .product-gallery {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         justify-content: space-between;
         grid-template-columns: repeat(2, 1fr); /* Create 2 columns */
-        grid-gap: 10px; /* Add some gap between grid items */
+        grid-gap: 5px; /* Add some gap between grid items */
     }
     
     
