@@ -75,6 +75,8 @@ body {
     background: #fff7f0;
     line-height: 1.6;
     font-smoothing: antialiased;
+    padding: 0;
+    margin: 0;
 
 /* Container */
 .container {
