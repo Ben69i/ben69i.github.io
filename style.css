@@ -571,7 +571,7 @@ footer .tg-channel a:hover {
     .product-gallery {
         display: flex;
         flex-wrap: wrap; /* Allows items to wrap onto new lines */
-        gap: 2px; /* Sets the gap between items */
+        gap: 5px; /* Sets the gap between items */
     }
 
     .product-gallery .product-item {
