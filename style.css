@@ -763,8 +763,8 @@ footer .tg-channel a:hover {
 .close-button {
         font-size: 1.2em;
         top: 15px;
-        right: 15px;
-    }
+        left: 15px;
+}
 
 .slideshow-section {
     display: flex;
