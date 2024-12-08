@@ -767,9 +767,10 @@ footer .tg-channel a:hover {
 }
 
 .close-button {
-        font-size: 1.2em;
-        top: 15px;
-        left: 15px;
+    font-size: 2.2em;
+    position: absolute; /* Ensure it is positioned relative to its nearest positioned ancestor */
+    top: 40px;          /* Distance from the top edge */
+    right: 270px;        /* Distance from the right edge */
 }
 
 .slideshow-section {
